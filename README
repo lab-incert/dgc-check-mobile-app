@@ -1,0 +1,67 @@
+# dgc-check-mobile-app
+
+Ionic App for validating EU Digital Green Certificate
+
+---
+
+## About this application
+
+This GitHub-repository contains a WIP / Sample implementation for the validation of the EU Digital Green Certificate.
+
+The solution is developed by Incert Gie Luxembourgish Agency (https://incert.lu).
+
+### Install
+
+```bash
+$ sudo npm install -g ionic cordova
+$ npm install ( in app folder )
+```
+
+Then, to run it:
+
+```bash
+$ ionic cordova platform add android
+$ ionic cordova run android
+```
+
+Substitute android for ios if on a Mac.
+
+### Automating Icons and Splash Screens
+
+https://ionicframework.com/blog/automating-icons-and-splash-screens/
+
+### Build APK (prod)
+
+https://ionicframework.com/docs/v1/guide/publishing.html
+
+```bash
+$ ionic cordova build --prod --release android
+```
+
+Then sign
+
+```bash
+$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ionic.test.project
+```
+
+Enter Passphrase for keystore (use keystore password in keepass dgc-check)
+
+```bash
+$ Android/SDK/build-tools/29.0.2/zipalign.exe -v 4 platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk platforms/android/app/build/outputs/apk/release/app-release.apk
+```
+
+### Build iOS APP (prod)
+
+On MAC using the command line:
+
+```bash
+$ ionic install
+```
+
+```bash
+$ ionic cordova prepare ios
+```
+
+Open project from XCode:
+
+File > Open : Select dgc-check-mobile-app > platforms > ios

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ 'settings' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list no-border>
+    <ion-list-header>
+      <ion-text color="dark">
+        <h5>{{ 'general' | translate }}</h5>
+      </ion-text>
+    </ion-list-header>
+    <ion-item>
+      <ion-icon name="settings" slot="start" color="primary"></ion-icon>
+      <ion-label color="primary">{{ 'language' | translate }}</ion-label>
+      <ion-select [(ngModel)]="lang" (ionChange)="changeLanguage()" cancelText="{{ 'cancel' | translate }}" okText="{{ 'ok' | translate }}">
+        <ion-select-option *ngFor="let language of languages | keyvalue" [value]="language.key">{{ language.value }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>

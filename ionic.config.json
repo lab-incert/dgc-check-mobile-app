@@ -1,0 +1,7 @@
+{
+  "name": "dgc-check-mobile-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

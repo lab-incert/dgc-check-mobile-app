@@ -1,0 +1,231 @@
+<ion-header>
+  <ion-toolbar [color]="'status-' + status">
+    <ion-title>{{ 'vaccination.certificate' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">{{ 'close' | translate }}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="check-bar status-{{ status }}">
+    <img src="../assets/img/status-{{ status }}.png" width="100"/>
+    <p class="details" *ngFor="let message of messages">{{ message }}</p>
+  </div>
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label>{{ 'personal.information' | translate }}</ion-label>
+    </ion-item-divider>
+    <ion-item *ngIf="data.nam.gnt">
+      <ion-label>
+        <h2>{{ 'standardised.given.name' | translate }}</h2>
+        <p>{{ data.nam.gnt }}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="data.nam.fnt">
+      <ion-label>
+        <h2>{{ 'standardised.family.name' | translate }}</h2>
+        <p>{{ data.nam.fnt }}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="data.nam.gn">
+      <ion-label>
+        <h2>{{ 'given.name' | translate }}</h2>
+        <p>{{ data.nam.gn }}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item *ngIf="data.nam.fn">
+      <ion-label>
+        <h2>{{ 'family.name' | translate }}</h2>
+        <p>{{ data.nam.fn }}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>{{ 'date.of.birth' | translate }}</h2>
+        <p>{{ data.dob }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-item-group>
+
+  <div *ngIf="data.v && data.v.length > 0">
+    <ion-item-group *ngFor="let vac of data.v">
+      <ion-item-divider>
+        <ion-label>{{ 'vaccination' | translate }}</ion-label>
+        <ion-badge slot="end">{{ 'dose' | translate }} {{ vac.dn }} / {{ vac.sd }}</ion-badge>
+      </ion-item-divider>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'vac.tg' | translate }}</h2>
+          <p>{{ vac.tg }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'vac.vp' | translate }}</h2>
+          <p>{{ vac.vp }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'vac.mp' | translate }}</h2>
+          <p>{{ vac.mp }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'vac.ma' | translate }}</h2>
+          <p>{{ vac.ma }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'vac.dt' | translate }}</h2>
+          <p>{{ vac.dt }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'vac.co' | translate }}</h2>
+          <p>{{ vac.co }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+        <h2>{{ 'vac.is' | translate }}</h2>
+        <p>{{ vac.is }}</p>
+      </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'vac.ci' | translate }}</h2>
+          <p>{{ vac.ci }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-item-group>
+  </div>
+
+  <div *ngIf="data.t && data.t.length > 0">
+    <ion-item-group *ngFor="let tst of data.t">
+      <ion-item-divider>
+        <ion-label>{{ 'test.result.statement' | translate }}</ion-label>
+      </ion-item-divider>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'tst.tg' | translate }}</h2>
+          <p>{{ tst.tg }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'tst.tt' | translate }}</h2>
+          <p>{{ tst.tt }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item *ngIf="tst.nm">
+        <ion-label>
+          <h2>{{ 'tst.nm' | translate }}</h2>
+          <p>{{ tst.nm }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item *ngIf="tst.ma">
+        <ion-label>
+          <h2>{{ 'tst.ma' | translate }}</h2>
+          <p>{{ tst.ma }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'tst.sc' | translate }}</h2>
+          <p>{{ tst.sc }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item *ngIf="tst.dr">
+        <ion-label>
+          <h2>{{ 'tst.dr' | translate }}</h2>
+          <p>{{ tst.dr }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'tst.tr' | translate }}</h2>
+          <p>{{ tst.tr }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'tst.tc' | translate }}</h2>
+          <p>{{ tst.tc }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'tst.co' | translate }}</h2>
+          <p>{{ tst.co }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'tst.is' | translate }}</h2>
+          <p>{{ tst.is }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'tst.ci' | translate }}</h2>
+          <p>{{ tst.ci }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-item-group>
+  </div>
+
+  <div *ngIf="data.r && data.r.length > 0">
+    <ion-item-group *ngFor="let rec of data.r">
+      <ion-item-divider>
+        <ion-label>{{ 'recovery.statement' | translate }}</ion-label>
+      </ion-item-divider>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'rec.tg' | translate }}</h2>
+          <p>{{ rec.tg }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'rec.fr' | translate }}</h2>
+          <p>{{ rec.fr }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'rec.co' | translate }}</h2>
+          <p>{{ rec.co }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'rec.is' | translate }}</h2>
+          <p>{{ rec.is }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'rec.df' | translate }}</h2>
+          <p>{{ rec.df }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'rec.du' | translate }}</h2>
+          <p>{{ rec.du }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          <h2>{{ 'rec.ci' | translate }}</h2>
+          <p>{{  rec.ci }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-item-group>
+  </div>
+</ion-content>

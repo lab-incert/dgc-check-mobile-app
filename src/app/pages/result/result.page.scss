@@ -1,0 +1,25 @@
+.check-bar {
+    text-align: center;
+    padding: 15px;
+    color: #fff;
+    &.status-success {
+        background-color: var(--ion-color-status-success);
+    }
+    &.status-warning {
+        background-color: var(--ion-color-status-warning);
+    }
+    &.status-error {
+        background-color: var(--ion-color-status-error);
+    }
+    p {
+        margin: 5px;
+    }
+}
+
+ion-item-divider {
+    padding: 10px 15px;
+}
+
+ion-toolbar:last-of-type {
+    --border-width: 0;
+}
